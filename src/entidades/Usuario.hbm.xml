@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/09/2016 22:34:59 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="entidades.Usuario" table="usuario" catalog="glpi">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="idUsuario" />
+            <generator class="identity" />
+        </id>
+        <property name="matricula" type="string">
+            <column name="matricula" length="10" not-null="true" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="80" not-null="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="10" not-null="true" />
+        </property>
+        <property name="admin" type="boolean">
+            <column name="admin" not-null="true" />
+        </property>
+        <set name="chamados" inverse="true">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Chamado" />
+        </set>
+    </class>
+</hibernate-mapping>

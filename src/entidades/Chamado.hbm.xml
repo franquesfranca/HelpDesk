@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/09/2016 22:34:59 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="entidades.Chamado" table="chamado" catalog="glpi">
+        <id name="idChamado" type="java.lang.Integer">
+            <column name="idChamado" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="tituloChamado" type="string">
+            <column name="tituloChamado" length="120" not-null="true" />
+        </property>
+        <property name="descricaoChamado" type="string">
+            <column name="descricaoChamado" length="360" not-null="true" />
+        </property>
+        <property name="dataChamado" type="string">
+            <column name="dataChamado" length="6" not-null="true" />
+        </property>
+        <property name="chamadoAtendido" type="boolean">
+            <column name="chamadoAtendido" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

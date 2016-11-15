@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/09/2016 22:34:59 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="entidades.Caso" table="caso" catalog="glpi">
+        <id name="idCaso" type="java.lang.Integer">
+            <column name="idCaso" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="descricaocaso" class="entidades.Descricaocaso" fetch="select">
+            <column name="idDescricao" not-null="true" />
+        </many-to-one>
+        <many-to-one name="solucaocaso" class="entidades.Solucaocaso" fetch="select">
+            <column name="idSolucao" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
